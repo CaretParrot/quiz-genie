@@ -1,1 +1,1 @@
-# quiz-genie
+# Quiz Genie

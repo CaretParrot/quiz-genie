@@ -8,12 +8,27 @@
         <link rel='icon' href='https://caretparrot.github.io/My-Libraries/Profile%20Picture.png'>
         <link rel='manifest' href='./manifest.json'>
         <link rel='stylesheet' href='./style.css'>
-        <link rel='stylesheet' href='https: //caretparrot.github.io/My-Libraries/default.css'>
+        <link rel='stylesheet' href='https://caretparrot.github.io/My-Libraries/default.css'>
         <script defer src='https://caretparrot.github.io/papaya-salad/script.js'></script>
         <script defer src='./script.js'></script>
     </head>
 
     <body>
+        <div class="pages" id="homePage">
+            <h1>Quiz Genie</h1>
+            <input id="quizTitle" placeholder="Title">
+            <button id="createQuiz">Create Quiz</button>
+        </div>
+        <div class="pages" id="createPage">
+            <h1 id="titleHeading">Create Quiz</h1>
+            <input id="question" placeholder="Question">
+            <input class="answer" id="ans1" placeholder="Answer 1">
+            <input class="answer" id="ans2" placeholder="Answer 2">
+            <input class="answer" id="ans3" placeholder="Answer 3">
+            <input class="answer" id="ans4" placeholder="Answer 4">
+            <button id="addQuestion" onclick="addQuestion()">Add Question</button>
+            <div id="questions"></div>
+        </div>
     </body>
 
 </html>
