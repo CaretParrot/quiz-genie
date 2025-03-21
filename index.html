@@ -22,12 +22,10 @@
         <div class="pages" id="createPage">
             <h1 id="titleHeading">Create Quiz</h1>
             <input id="question" placeholder="Question">
-            <input class="answer" id="ans1" placeholder="Answer 1">
-            <input class="answer" id="ans2" placeholder="Answer 2">
-            <input class="answer" id="ans3" placeholder="Answer 3">
-            <input class="answer" id="ans4" placeholder="Answer 4">
+            <textarea id="answers"></textarea>
+            <input id="correctAnswer" placeholder="Correct Answer" type="number" min="1" max="4" value="1">
             <button id="addQuestion" onclick="addQuestion()">Add Question</button>
-            <div id="questions"></div>
+            <div id="questionList"></div>
         </div>
     </body>
 

@@ -3,34 +3,28 @@ let pages = new PageGroup("pages", "grid");
 id.setupTree();
 
 let answers = document.getElementsByClassName("answer");
-
-for (let i = 0; i < answers.length; i++) {
-    for (let i = 0; i < answers.length; i++) {
-        answers[i].dataset.correct = false;
-    }
-    answers[i].onkeydown = function (event) { 
-        if (event.key === "Enter") {
-            for (let i = 0; i < answers.length; i++) {
-                answers[i].dataset.correct = false;
-            }
-            answers[i].dataset.correct = true;
-        }
-    }
-}
-
-let quizzes = {
-    
-}
+let quizzes = {};
 
 function addQuestion() {
     let newQuestion = document.createElement("button");
-    newQuestion.textContent = `${id.question.value}: ${id.ans1.value}, ${id.ans2.value}, ${id.ans3.value}, ${id.ans4.value}`;
+    let answerList = id.answers.value.split("\n");
+    answerList[id.correctAnswer.value - 1] += "☑";
+    newQuestion.textContent = `${id.question.value}: ${answerList}`;
     newQuestion.id = newQuestion.textContent;
-    id.questions.appendChild(newQuestion);
+    newQuestion.onclick = function () {
+        this.remove(); 
+        quizzes[id.quizTitle.value].splice(quizzes[id.quizTitle.value].indexOf(this.textContent), quizzes[id.quizTitle.value].indexOf(this.textContent));
+        console.log(quizzes[id.quizTitle.value].indexOf(this.textContent));
+    };
+    id.questionList.appendChild(newQuestion);
+
+    quizzes[id.quizTitle.value].push(newQuestion.textContent);
 }
 
-id.createQuiz.onclick = function (){
-    pages.changePage('createPage');
-    id.titleHeading.innerHTML = id.quizTitle.value;
-    quizzes[id.quizTitle.value] = []
+id.createQuiz.onclick = function () {
+    if (id.quizTitle.value) {
+        pages.changePage('createPage');
+        id.titleHeading.innerHTML = id.quizTitle.value;
+        quizzes[id.quizTitle.value] = [];
+    }
 }
