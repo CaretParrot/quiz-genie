@@ -17,3 +17,9 @@
     display: flex;
     flex-flow: row wrap;
 }
+
+form {
+    margin: 0;
+    padding: 0;
+    background-color: transparent;
+}
