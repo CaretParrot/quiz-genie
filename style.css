@@ -5,7 +5,7 @@
 }
 
 #createPage {
-    grid: auto / 1fr;
+    grid: auto / 1fr 1fr;
 }
 
 #answers {
@@ -22,4 +22,13 @@ form {
     margin: 0;
     padding: 0;
     background-color: transparent;
+}
+
+#titleHeading {
+    grid-area: 1 / 1 / 1 / 3;
+}
+
+#questionList {
+    grid-area: 4 / 1 / 4 / 3;
+    grid: auto / 1fr 1fr;
 }
