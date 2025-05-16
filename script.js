@@ -5,6 +5,14 @@ id.setupTree();
 let answers = document.getElementsByClassName("answer");
 let quizzes = {};
 
+window.onload = function ( ) {
+    if (localStorage.getItem("quizzes")) {
+        quizzes = localStorage.getItem("quizzes");
+    }
+
+    
+}
+
 id.createQuiz.onclick = function () {
     if (id.quizTitle.value) {
         pages.changePage('createPage');
@@ -19,8 +27,6 @@ function addQuestion() {
     let answerList = id.answers.value.split("\n");
     answerList[id.correctAnswer.value - 1] += "☑";
     quizzes[id.quizTitle.value].questions.push(`${id.question.value}: ${answerList}`);
-    console.log(quizzes[id.quizTitle.value]);
-
     updateList(answerList);
 }
 
@@ -38,11 +44,11 @@ function updateList(answerList) {
         newQuestion.onclick = function () {
             this.remove();
             quizzes[id.quizTitle.value].questions.splice(quizzes[id.quizTitle.value].questions.indexOf(this.textContent), 1);
-            console.log(quizzes[id.quizTitle.value]);
+            localStorage.setItem("quizzes", quizzes);
         }
         newQuestion.innerHTML = quizzes[id.quizTitle.value].questions[i];
         id.questionList.appendChild(newQuestion);
     }
 
-    localStorage.setItem("quizzes", JSON.stringify(quizzes))
+    localStorage.setItem("quizzes", quizzes);
 }
