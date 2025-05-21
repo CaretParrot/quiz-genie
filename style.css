@@ -32,3 +32,7 @@ form {
     grid-area: 4 / 1 / 4 / 3;
     grid: auto / 1fr 1fr;
 }
+
+#quizList {
+    display: flex;
+}
